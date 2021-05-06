@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "Launch and attach",
+            "port": 9229,
+            "request": "attach",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "pwa-node",
+            "preLaunchTask": "npm: start:debug"
+        }
+    ]
+}

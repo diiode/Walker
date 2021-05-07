@@ -3,6 +3,9 @@
 ## To Do
 
  - [x] Swagger
+     - [ ] Swagger description
+     - [ ] Swagger model definition
  - [ ] Database integration
  - [ ] Request validation (required, etc)
- - [ ] Send web page
+ - [x] MVC web page
+ - [ ] Database

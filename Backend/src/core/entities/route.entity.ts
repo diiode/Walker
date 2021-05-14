@@ -1,7 +1,8 @@
+import { BaseEntity } from "./base.entity";
 import { Country } from "./country.entity";
 import { Province } from "./province.entity";
 
-export class Route {
+export class Route extends BaseEntity {
     id: number;
     dateTimeCreated: Date;
     title: string;

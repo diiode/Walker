@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
-import { MockCountryRepostory } from './data/mocks/mock-country.repository';
-import { CountryRepository } from './data/repositories/country.repository';
+import { MockCountryRepostory } from 'src/data/mocks/mock-country.repository';
 import { CountryService } from './services/country.service';
 
 @Module({

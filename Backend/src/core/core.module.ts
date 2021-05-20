@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { MockCountryRepostory } from 'src/data/mocks/mock-country.repository';
+import { MockRouteRepository } from 'src/data/mocks/mock-route.repository';
 import { CountryService } from './services/country.service';
+import { RouteService } from './services/route.service';
 
 @Module({
   providers: [CountryService,
@@ -9,10 +11,15 @@ import { CountryService } from './services/country.service';
   //   useValue: MockCountryRepostory
   // }
   {
-    provide: 'IRepository',
+    provide: 'ICountryRepository',
     useClass: MockCountryRepostory
-  }
+  },
+  {
+    provide: 'IRouteRepository',
+    useClass: MockRouteRepository
+  },
+  RouteService
   ],
-  exports: [CountryService]
+  exports: [CountryService, RouteService]
 })
 export class CoreModule {}

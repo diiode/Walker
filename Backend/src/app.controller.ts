@@ -6,6 +6,5 @@ export class AppController {
 
   @Get()
   @Redirect('/web')
-  getHello() {
-  }
+  getHello() {}
 }

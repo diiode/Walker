@@ -1,3 +1,1 @@
-export class BaseEntity {
-    
-}
+export class BaseEntity {}

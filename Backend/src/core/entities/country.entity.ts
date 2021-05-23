@@ -1,6 +1,6 @@
-import { BaseEntity } from "./base.entity";
+import { BaseEntity } from './base.entity';
 
 export class Country extends BaseEntity {
-    name: string;
-    code: string;
+  name: string;
+  code: string;
 }

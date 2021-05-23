@@ -6,10 +6,10 @@ import { CrouteRouteDto } from '../dtos/create-route.dto';
 @ApiTags('routes')
 @Controller('routes')
 export class RoutesController {
-    constructor(private routeService: RouteService) { }
+  constructor(private routeService: RouteService) {}
 
-    @Post()
-    create(@Body() createRouteDto: CrouteRouteDto) {
-        this.routeService.createRoute(createRouteDto);
-    }
+  @Post()
+  create(@Body() createRouteDto: CrouteRouteDto) {
+    this.routeService.createRoute(createRouteDto);
+  }
 }

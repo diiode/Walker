@@ -5,17 +5,18 @@ import { CountryService } from './services/country.service';
 import { RouteService } from './services/route.service';
 
 @Module({
-  providers: [CountryService,
-  {
-    provide: 'ICountryRepository',
-    useClass: MockCountryRepostory
-  },
-  {
-    provide: 'IRouteRepository',
-    useClass: MockRouteRepository
-  },
-  RouteService
+  providers: [
+    CountryService,
+    {
+      provide: 'ICountryRepository',
+      useClass: MockCountryRepostory,
+    },
+    {
+      provide: 'IRouteRepository',
+      useClass: MockRouteRepository,
+    },
+    RouteService,
   ],
-  exports: [CountryService, RouteService]
+  exports: [CountryService, RouteService],
 })
 export class CoreModule {}

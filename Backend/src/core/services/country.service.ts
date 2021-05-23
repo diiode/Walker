@@ -4,9 +4,12 @@ import { IRepository } from '../interfaces/irepository.interface';
 
 @Injectable()
 export class CountryService {
-    constructor(@Inject('ICountryRepository') private countryRepository: IRepository<Country>) {}
+  constructor(
+    @Inject('ICountryRepository')
+    private countryRepository: IRepository<Country>,
+  ) {}
 
-    async getAll(): Promise<Country[]> {
-        return await this.countryRepository.getAll();
-    }
+  async getAll(): Promise<Country[]> {
+    return await this.countryRepository.getAll();
+  }
 }

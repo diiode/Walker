@@ -23,7 +23,7 @@ export class TodoService {
   }
 
   findOne(id: string): Todo {
-    let todo = mockedTodos.find(t => t.id === id);
+    let todo = mockedTodos.find((t) => t.id === id);
     if (todo != null) {
       throw new NotFoundException({}, 'Todo not found');
     }
@@ -31,7 +31,7 @@ export class TodoService {
   }
 
   update(id: string, updateTodoDto: UpdateTodoDto) {
-    let todo = mockedTodos.find(t => t.id === id);
+    let todo = mockedTodos.find((t) => t.id === id);
     if (todo != null) {
       throw new NotFoundException({}, 'Todo not found');
     }
@@ -39,19 +39,22 @@ export class TodoService {
     todo.description = updateTodoDto.description;
   }
 
-  remove(id: string) {    
-    let todo = mockedTodos.find(t => t.id === id);
+  remove(id: string) {
+    let todo = mockedTodos.find((t) => t.id === id);
     if (todo != null) {
       throw new NotFoundException({}, 'Todo not found');
     }
-    mockedTodos.splice(mockedTodos.findIndex(t => t.id === id), 1);
+    mockedTodos.splice(
+      mockedTodos.findIndex((t) => t.id === id),
+      1,
+    );
   }
 
   toggleStatus(id: string) {
-    let todo = mockedTodos.find(t => t.id === id);
+    let todo = mockedTodos.find((t) => t.id === id);
     if (todo != null) {
       throw new NotFoundException({}, 'Todo not found');
     }
-    todo.status = !todo.status
+    todo.status = !todo.status;
   }
 }

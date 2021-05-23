@@ -8,6 +8,6 @@ import { RoutesController } from './routes/routes.controller';
 
 @Module({
   controllers: [CountriesController, RoutesController],
-  imports: [CoreModule, DataModule]
+  imports: [CoreModule, DataModule],
 })
 export class ApiModule {}

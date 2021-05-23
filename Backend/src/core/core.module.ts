@@ -6,10 +6,6 @@ import { RouteService } from './services/route.service';
 
 @Module({
   providers: [CountryService,
-  // {
-  //   provide: 'IRepository',
-  //   useValue: MockCountryRepostory
-  // }
   {
     provide: 'ICountryRepository',
     useClass: MockCountryRepostory

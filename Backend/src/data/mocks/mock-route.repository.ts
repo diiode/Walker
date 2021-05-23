@@ -1,12 +1,17 @@
 import { Route } from 'src/core/entities/route.entity';
 import { IRepository } from 'src/core/interfaces/irepository.interface';
+import { routes } from './routes.mock';
 
 export class MockRouteRepository implements IRepository<Route> {
-  private routeStore: Route[] = [];
-  private routeStoreCounter = 1;
+  private routeStore: Route[] = routes;
+  private routeStoreCounter = 2;
 
-  getAll(): Promise<Route[]> {
-    throw new Error('Method not implemented.');
+  async getAll(): Promise<Route[]> {
+    return this.routeStore;
+  }
+
+  async getById(id: number): Promise<Route> {
+    return this.routeStore.find((r) => r.id == id);
   }
 
   add(newRoute: Route) {
@@ -16,7 +21,8 @@ export class MockRouteRepository implements IRepository<Route> {
     this.routeStoreCounter = this.routeStoreCounter++;
   }
 
-  getById(id: number) {
-    return this.routeStore.find((r) => r.id === id);
+  update(id: number, entity: Route) {
+    const index = this.routeStore.findIndex((r) => r.id == id);
+    this.routeStore[index] = entity;
   }
 }

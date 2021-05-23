@@ -1,4 +1,3 @@
-import { link } from 'node:fs';
 import { BaseEntity } from './base.entity';
 import { Country } from './country.entity';
 import { Gpx } from './gpx.entity';
@@ -24,7 +23,7 @@ export class Route extends BaseEntity {
   id: number;
   dateTimeCreated: Date;
   title: string;
-  description: string;
+  description?: string;
   length: number;
   link: string;
   country: Country;
@@ -36,19 +35,33 @@ export class Route extends BaseEntity {
   rating?: number;
   difficulty: number;
 
+  private constructor(route: Partial<RouteProps>) {
+    super();
+    this.id = 0;
+    this.title = route.title;
+    this.description = route.description;
+    this.dateTimeCreated = new Date();
+    this.length = route.length;
+    this.link = route.link;
+    this.country = route.country;
+    this.province = route.province;
+    this.status = RouteStatus.Added;
+    this.difficulty = route.difficulty;
+  }
+
   public static create(route: Partial<RouteProps>): Route {
-    return {
-      id: 0,
-      title: route.title,
-      description: route.description,
-      dateTimeCreated: new Date(),
-      length: route.length,
-      link: route.link,
-      country: route.country,
-      province: route.province,
-      status: RouteStatus.Added,
-      difficulty: route.difficulty,
-    };
+    return new Route(route);
+  }
+
+  plan() {
+    if (this.status == RouteStatus.Planned) {
+      console.log('Route already planned');
+    } else if (this.status == RouteStatus.Added) {
+      this.status = RouteStatus.Planned;
+      this.plannedDate = new Date();
+    } else if (this.status == RouteStatus.Done) {
+      throw new Error(`Can't plan a route that's already planned.`);
+    }
   }
 }
 

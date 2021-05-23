@@ -3,7 +3,10 @@ import { IRepository } from 'src/core/interfaces/irepository.interface';
 import { countries } from './countries.mock';
 
 export class MockCountryRepostory implements IRepository<Country> {
-  getById(id: number): Country {
+  update(id: number, entity: Country) {
+    throw new Error('Method not implemented.');
+  }
+  getById(id: number): Promise<Country> {
     throw new Error('Method not implemented.');
   }
   add(entity: Country) {

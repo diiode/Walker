@@ -25,9 +25,9 @@ export class Route extends BaseEntity {
   title: string;
   description?: string;
   length: number;
-  link: string;
+  link?: string;
   country: Country;
-  province: string;
+  province?: string;
   geoGpx?: Gpx;
   status: RouteStatus;
   plannedDate?: Date;
@@ -53,12 +53,12 @@ export class Route extends BaseEntity {
     return new Route(route);
   }
 
-  plan() {
+  plan(plannedDate: Date) {
     if (this.status == RouteStatus.Planned) {
       console.log('Route already planned');
     } else if (this.status == RouteStatus.Added) {
       this.status = RouteStatus.Planned;
-      this.plannedDate = new Date();
+      this.plannedDate = plannedDate;
     } else if (this.status == RouteStatus.Done) {
       throw new Error(`Can't plan a route that's already planned.`);
     }

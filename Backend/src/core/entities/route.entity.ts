@@ -2,6 +2,16 @@ import { BaseEntity } from './base.entity';
 import { Country } from './country.entity';
 import { Gpx } from './gpx.entity';
 
+export interface CreateRouteProps {
+  title: string;
+  description?: string;
+  length: number;
+  link?: string;
+  country: Country;
+  province?: string;
+  difficulty: number;
+}
+
 export class Route extends BaseEntity {
   id: number;
   dateTimeCreated: Date;
@@ -18,14 +28,14 @@ export class Route extends BaseEntity {
   rating?: number;
   difficulty: number;
 
-  private constructor(route: Partial<Route>) {
+  private constructor(route: CreateRouteProps) {
     super();
     Object.assign(this, route);
     this.dateTimeCreated = new Date();
     this.status = RouteStatus.Added;
   }
 
-  public static create(route: Partial<Route>): Route {
+  public static create(route: CreateRouteProps): Route {
     return new Route(route);
   }
 
@@ -51,7 +61,7 @@ export class Route extends BaseEntity {
 }
 
 export enum RouteStatus {
-  Added,
-  Planned,
-  Done,
+  Added = 'Added',
+  Planned = 'Planned',
+  Done = 'Done',
 }

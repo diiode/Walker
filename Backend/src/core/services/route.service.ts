@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Route } from '../entities/route.entity';
+import { CreateRouteProps, Route } from '../entities/route.entity';
 import { IRepository } from 'src/core/interfaces/irepository.interface';
 import { ICountryRepository } from '../interfaces/icountry-repository.interface';
 
@@ -21,7 +21,7 @@ export class RouteService {
     difficulty: number,
   ) {
     const country = this.countryRepository.getByCode(countryCode);
-    const routeProps: Partial<Route> = {
+    const routeProps: CreateRouteProps = {
       title: title,
       description: description,
       length: length,

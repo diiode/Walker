@@ -15,4 +15,4 @@
   - [x] GetById
   - [x] Update route details
   - [x] Plan on date
-  - [ ] Complete and rate route
+  - [x] Complete and rate route

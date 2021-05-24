@@ -1,7 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Route, RouteProps } from '../entities/route.entity';
+import { Route } from '../entities/route.entity';
 import { IRepository } from 'src/core/interfaces/irepository.interface';
-import { Country } from '../entities/country.entity';
 import { ICountryRepository } from '../interfaces/icountry-repository.interface';
 
 @Injectable()
@@ -43,9 +42,33 @@ export class RouteService {
     return this.routeRepository.getById(id);
   }
 
+  async update(id: number, updatedRoute: Partial<Route>) {
+    const route = await this.routeRepository.getById(id);
+    if (route == null) {
+      throw new Error('Route not found');
+    }
+
+    const routeToUpdate: Partial<Route> = { ...route, ...updatedRoute };
+    this.routeRepository.update(id, routeToUpdate);
+  }
+
   async plan(id: number, plannedDate: Date) {
     const route = await this.routeRepository.getById(id);
+    if (route == null) {
+      throw new Error('Route not found');
+    }
+
     route.plan(plannedDate);
+    this.routeRepository.update(id, route);
+  }
+
+  async complete(id: number, rating: number) {
+    const route = await this.routeRepository.getById(id);
+    if (route == null) {
+      throw new Error('Route not found');
+    }
+
+    route.complete(rating);
     this.routeRepository.update(id, route);
   }
 }

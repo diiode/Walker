@@ -1,5 +1,4 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { Country } from 'src/core/entities/country.entity';
 
 export class CreateRouteDto {
   @ApiProperty()

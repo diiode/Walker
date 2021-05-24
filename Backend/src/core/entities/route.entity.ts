@@ -2,23 +2,6 @@ import { BaseEntity } from './base.entity';
 import { Country } from './country.entity';
 import { Gpx } from './gpx.entity';
 
-export interface RouteProps {
-  id?: number;
-  dateTimeCreated: Date;
-  title: string;
-  description: string;
-  length: number;
-  link: string;
-  country: Country;
-  province: string;
-  geoGpx: Gpx;
-  status: RouteStatus;
-  plannedDate: Date;
-  doneDate: Date;
-  rating: number;
-  difficulty: number;
-}
-
 export class Route extends BaseEntity {
   id: number;
   dateTimeCreated: Date;
@@ -35,21 +18,14 @@ export class Route extends BaseEntity {
   rating?: number;
   difficulty: number;
 
-  private constructor(route: Partial<RouteProps>) {
+  private constructor(route: Partial<Route>) {
     super();
-    this.id = 0;
-    this.title = route.title;
-    this.description = route.description;
+    Object.assign(this, route);
     this.dateTimeCreated = new Date();
-    this.length = route.length;
-    this.link = route.link;
-    this.country = route.country;
-    this.province = route.province;
     this.status = RouteStatus.Added;
-    this.difficulty = route.difficulty;
   }
 
-  public static create(route: Partial<RouteProps>): Route {
+  public static create(route: Partial<Route>): Route {
     return new Route(route);
   }
 
@@ -62,6 +38,15 @@ export class Route extends BaseEntity {
     } else if (this.status == RouteStatus.Done) {
       throw new Error(`Can't plan a route that's already planned.`);
     }
+  }
+
+  complete(rating: number) {
+    if (this.status != RouteStatus.Planned) {
+      throw new Error(`Can't complete a route that's not planned.`);
+    }
+    this.status = RouteStatus.Done;
+    this.rating = rating;
+    this.doneDate = new Date();
   }
 }
 

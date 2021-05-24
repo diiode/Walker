@@ -13,6 +13,6 @@
   - [x] Create
   - [x] GetAll
   - [x] GetById
-  - [ ] Update route details
+  - [x] Update route details
   - [x] Plan on date
   - [ ] Complete and rate route

@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 @Injectable()
 export class TodoService {
   create(createTodoDto: CreateTodoDto) {
-    let todo: Todo = {
+    const todo: Todo = {
       id: uuidv4(),
       title: createTodoDto.title,
       description: createTodoDto.description,
@@ -23,7 +23,7 @@ export class TodoService {
   }
 
   findOne(id: string): Todo {
-    let todo = mockedTodos.find((t) => t.id === id);
+    const todo = mockedTodos.find((t) => t.id === id);
     if (todo != null) {
       throw new NotFoundException({}, 'Todo not found');
     }
@@ -31,7 +31,7 @@ export class TodoService {
   }
 
   update(id: string, updateTodoDto: UpdateTodoDto) {
-    let todo = mockedTodos.find((t) => t.id === id);
+    const todo = mockedTodos.find((t) => t.id === id);
     if (todo != null) {
       throw new NotFoundException({}, 'Todo not found');
     }
@@ -40,7 +40,7 @@ export class TodoService {
   }
 
   remove(id: string) {
-    let todo = mockedTodos.find((t) => t.id === id);
+    const todo = mockedTodos.find((t) => t.id === id);
     if (todo != null) {
       throw new NotFoundException({}, 'Todo not found');
     }
@@ -51,7 +51,7 @@ export class TodoService {
   }
 
   toggleStatus(id: string) {
-    let todo = mockedTodos.find((t) => t.id === id);
+    const todo = mockedTodos.find((t) => t.id === id);
     if (todo != null) {
       throw new NotFoundException({}, 'Todo not found');
     }

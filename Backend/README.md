@@ -6,10 +6,10 @@
   - [ ] Swagger description
   - [ ] Swagger model definition
 - [ ] Database integration
-- [ ] Request validation (required, etc)
+- [x] Request validation (required, etc)
 - [x] MVC web page
 - [ ] Database
-- [ ] Route functions
+- [x] Route functions
   - [x] Create
   - [x] GetAll
   - [x] GetById

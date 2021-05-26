@@ -1,24 +1,4 @@
-import { ApiPropertyOptional } from '@nestjs/swagger';
+import { PartialType } from '@nestjs/swagger';
+import { CreateRouteDto } from './create-route.dto';
 
-export class UpdateRouteDto {
-  @ApiPropertyOptional()
-  title?: string;
-
-  @ApiPropertyOptional()
-  description?: string;
-
-  @ApiPropertyOptional()
-  length?: number;
-
-  @ApiPropertyOptional()
-  link?: string;
-
-  @ApiPropertyOptional()
-  countryCode?: string;
-
-  @ApiPropertyOptional()
-  province?: string;
-
-  @ApiPropertyOptional()
-  difficulty?: number;
-}
+export class UpdateRouteDto extends PartialType(CreateRouteDto) {}

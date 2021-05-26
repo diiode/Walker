@@ -1,6 +1,12 @@
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import {
+  ApiCreatedResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { plainToClass } from 'class-transformer';
+import { Route } from 'src/core/entities/route.entity';
 import { RouteService } from 'src/core/services/route.service';
 import { CompleteRouteDto } from '../dtos/complete-route.dto';
 import { CreateRouteDto } from '../dtos/create-route.dto';
@@ -14,6 +20,7 @@ export class RoutesController {
   constructor(private routeService: RouteService) {}
 
   @Post()
+  @ApiCreatedResponse()
   create(@Body() createRouteDto: CreateRouteDto) {
     this.routeService.createRoute(
       createRouteDto.title,
@@ -27,18 +34,28 @@ export class RoutesController {
   }
 
   @Get()
-  async getAll() {
+  @ApiOkResponse({
+    type: RouteResultDto,
+    isArray: true,
+  })
+  async getAll(): Promise<RouteResultDto[]> {
     const routes = await this.routeService.getAll();
     return plainToClass(RouteResultDto, routes);
   }
 
   @Get(':id')
+  @ApiOkResponse({
+    type: RouteResultDto,
+  })
+  @ApiNotFoundResponse()
   getById(@Param('id') id: number) {
     const route = this.routeService.getById(id);
     return plainToClass(RouteResultDto, route);
   }
 
   @Put(':id')
+  @ApiOkResponse()
+  @ApiNotFoundResponse()
   async update(
     @Param('id') id: number,
     @Body() updateRouteDto: UpdateRouteDto,
@@ -47,11 +64,13 @@ export class RoutesController {
   }
 
   @Post(':id/plan')
+  @ApiNotFoundResponse()
   async plan(@Param('id') id: number, @Body() planRouteDto: PlanRouteDto) {
     return await this.routeService.plan(id, planRouteDto.plannedDate);
   }
 
   @Post(':id/complete')
+  @ApiNotFoundResponse()
   async complete(
     @Param('id') id: number,
     @Body() completeRouteDto: CompleteRouteDto,

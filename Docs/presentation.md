@@ -103,3 +103,25 @@ Generate a CRUD endpoint with Entities DTOs, Controller, Module and Service:
 ```
 nest g crud todo
 ```
+
+---
+
+# Walker
+
+Like everything during the lockdown, I started to walk more and plan a lot of trips.
+
+Why not build and app to plan those trips and register and rate them.
+
+---
+
+# Demo 2: Walker App
+
+---
+
+# Demo 2: Walker App - Guide
+
+_Hide_
+
+1. Show entities
+2. Start app and explain swagger integration
+3.

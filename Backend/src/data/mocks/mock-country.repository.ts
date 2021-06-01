@@ -2,7 +2,7 @@ import { Country } from 'src/core/entities/country.entity';
 import { IRepository } from 'src/core/interfaces/irepository.interface';
 import { countries } from './countries.mock';
 
-export class MockCountryRepostory implements IRepository<string, Country> {
+export class MockCountryRepository implements IRepository<string, Country> {
   getByCode(countryCode: string): Country {
     return countries.find((c) => c.code == countryCode);
   }

@@ -1,17 +1,18 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { CreateRouteProps, Route } from '../entities/route.entity';
 import { IRepository } from 'src/core/interfaces/irepository.interface';
-import { ICountryRepository } from '../interfaces/icountry-repository.interface';
+import { Country } from '../entities/country.entity';
 
 @Injectable()
 export class RouteService {
   constructor(
-    @Inject('IRouteRepository') private routeRepository: IRepository<Route>,
+    @Inject('IRouteRepository')
+    private routeRepository: IRepository<number, Route>,
     @Inject('ICountryRepository')
-    private countryRepository: ICountryRepository,
+    private countryRepository: IRepository<string, Country>,
   ) {}
 
-  createRoute(
+  async createRoute(
     title: string,
     description: string,
     length: number,
@@ -20,7 +21,7 @@ export class RouteService {
     province: string,
     difficulty: number,
   ) {
-    const country = this.countryRepository.getByCode(countryCode);
+    const country = await this.countryRepository.getById(countryCode);
     const routeProps: CreateRouteProps = {
       title: title,
       description: description,

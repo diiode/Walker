@@ -3,11 +3,11 @@ import { Country } from 'src/core/entities/country.entity';
 import { IRepository } from 'src/core/interfaces/irepository.interface';
 
 @Injectable()
-export class CountryRepository implements IRepository<Country> {
-  update(id: number, entity: Country) {
+export class CountryRepository implements IRepository<string, Country> {
+  update(id: string, entity: Country) {
     throw new Error('Method not implemented.');
   }
-  getById(id: number): Promise<Country> {
+  getById(id: string): Promise<Country> {
     throw new Error('Method not implemented.');
   }
   add(entity: Country) {

@@ -6,7 +6,7 @@ import { IRepository } from '../interfaces/irepository.interface';
 export class CountryService {
   constructor(
     @Inject('ICountryRepository')
-    private countryRepository: IRepository<Country>,
+    private countryRepository: IRepository<string, Country>,
   ) {}
 
   async getAll(): Promise<Country[]> {

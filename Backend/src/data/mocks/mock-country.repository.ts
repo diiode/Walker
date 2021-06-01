@@ -1,15 +1,15 @@
 import { Country } from 'src/core/entities/country.entity';
-import { ICountryRepository } from 'src/core/interfaces/icountry-repository.interface';
+import { IRepository } from 'src/core/interfaces/irepository.interface';
 import { countries } from './countries.mock';
 
-export class MockCountryRepostory implements ICountryRepository {
+export class MockCountryRepostory implements IRepository<string, Country> {
   getByCode(countryCode: string): Country {
     return countries.find((c) => c.code == countryCode);
   }
-  update(id: number, entity: Country) {
+  update(id: string, entity: Country) {
     throw new Error('Method not implemented.');
   }
-  getById(id: number): Promise<Country> {
+  getById(id: string): Promise<Country> {
     throw new Error('Method not implemented.');
   }
   add(entity: Country) {

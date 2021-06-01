@@ -16,3 +16,9 @@
   - [x] Update route details
   - [x] Plan on date
   - [x] Complete and rate route
+
+
+## Links
+
+- https://www.techiediaries.com/nestjs-tutorial-rest-api-crud/
+- https://docs.nestjs.com

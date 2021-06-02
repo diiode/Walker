@@ -1,15 +1,15 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { CreateRouteProps, Route } from '../entities/route.entity';
-import { IRepository } from 'src/core/interfaces/irepository.interface';
+import { IRepo } from 'src/core/interfaces/irepository.interface';
 import { Country } from '../entities/country.entity';
 
 @Injectable()
 export class RouteService {
   constructor(
-    @Inject('IRouteRepository')
-    private routeRepository: IRepository<number, Route>,
-    @Inject('ICountryRepository')
-    private countryRepository: IRepository<string, Country>,
+    @Inject('IRouteRepo')
+    private routeRepository: IRepo<number, Route>,
+    @Inject('ICountryRepo')
+    private countryRepository: IRepo<string, Country>,
   ) {}
 
   async createRoute(

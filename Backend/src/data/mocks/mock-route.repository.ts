@@ -1,8 +1,8 @@
 import { Route } from 'src/core/entities/route.entity';
-import { IRepository } from 'src/core/interfaces/irepository.interface';
+import { IRepo } from 'src/core/interfaces/irepository.interface';
 import { routes } from './routes.mock';
 
-export class MockRouteRepository implements IRepository<number, Route> {
+export class MockRouteRepo implements IRepo<number, Route> {
   private routeStore: Route[] = routes;
   private routeStoreCounter = 2;
 

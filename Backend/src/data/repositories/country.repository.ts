@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Country } from 'src/core/entities/country.entity';
-import { IRepository } from 'src/core/interfaces/irepository.interface';
+import { IRepo } from 'src/core/interfaces/irepository.interface';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class CountryRepository implements IRepository<string, Country> {
+export class CountryRepo implements IRepo<string, Country> {
   constructor(
     @InjectRepository(Country) private repository: Repository<Country>,
   ) {}

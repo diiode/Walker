@@ -1,23 +1,26 @@
 import { Module } from '@nestjs/common';
-import { MockCountryRepository } from 'src/data/mocks/mock-country.repository';
-import { CountryRepository } from 'src/data/repositories/country.repository';
-import { MockRouteRepository } from 'src/data/mocks/mock-route.repository';
+import { CountryRepo } from 'src/data/repositories/country.repository';
+import { MockRouteRepo } from 'src/data/mocks/mock-route.repository';
 import { CountryService } from './services/country.service';
 import { RouteService } from './services/route.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { CountrySchema } from 'src/data/entity-schemas/country.schema';
+import { RouteSchema } from 'src/data/entity-schemas/route.schema';
 
 @Module({
+  imports: [TypeOrmModule.forFeature([CountrySchema, RouteSchema])],
   providers: [
     // {
-    //   provide: 'ICountryRepository',
-    //   useClass: MockCountryRepostory,
+    //   provide: 'ICountryRepo',
+    //   useClass: MockCountryRepo,
     // },
     {
-      provide: 'ICountryRepository',
-      useClass: CountryRepository,
+      provide: 'ICountryRepo',
+      useClass: CountryRepo,
     },
     {
-      provide: 'IRouteRepository',
-      useClass: MockRouteRepository,
+      provide: 'IRouteRepo',
+      useClass: MockRouteRepo,
     },
     CountryService,
     RouteService,

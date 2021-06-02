@@ -1,4 +1,5 @@
-export interface IRepository<Type, BaseEntity> {
+// Name all repositories 'Repo', otherwise it conflicts with TypeORM (Whut?!)
+export interface IRepo<Type, BaseEntity> {
   getAll(): Promise<BaseEntity[]>;
   getById(id: Type): Promise<BaseEntity>;
   add(entity: BaseEntity);

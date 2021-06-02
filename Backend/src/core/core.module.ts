@@ -6,6 +6,7 @@ import { RouteService } from './services/route.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CountrySchema } from 'src/data/entity-schemas/country.schema';
 import { RouteSchema } from 'src/data/entity-schemas/route.schema';
+import { RouteRepo } from 'src/data/repositories/route.repository';
 
 @Module({
   imports: [TypeOrmModule.forFeature([CountrySchema, RouteSchema])],
@@ -18,9 +19,13 @@ import { RouteSchema } from 'src/data/entity-schemas/route.schema';
       provide: 'ICountryRepo',
       useClass: CountryRepo,
     },
+    // {
+    //   provide: 'IRouteRepo',
+    //   useClass: MockRouteRepo,
+    // },
     {
       provide: 'IRouteRepo',
-      useClass: MockRouteRepo,
+      useClass: RouteRepo,
     },
     CountryService,
     RouteService,

@@ -1,9 +1,10 @@
+import { Country } from 'src/core/entities/country.entity';
 import { Route, RouteStatus } from 'src/core/entities/route.entity';
 import { EntitySchema } from 'typeorm';
 
 export const RouteSchema = new EntitySchema<Route>({
-  name: 'Route',
-  target: Route,
+  name: 'route',
+  // target: Route,
   columns: {
     id: {
       type: Number,
@@ -43,12 +44,22 @@ export const RouteSchema = new EntitySchema<Route>({
     },
     doneDate: {
       type: Date,
+      nullable: true,
     },
     rating: {
       type: Number,
+      nullable: true,
     },
     difficulty: {
       type: Number,
+    },
+  },
+  relations: {
+    country: {
+      type: 'many-to-one',
+      target: 'country',
+      joinColumn: { referencedColumnName: 'code' },
+      inverseSide: 'routes',
     },
   },
 });

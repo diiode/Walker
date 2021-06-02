@@ -2,6 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { Country } from 'src/core/entities/country.entity';
 import { Gpx } from 'src/core/entities/gpx.entity';
 import { RouteStatus } from 'src/core/entities/route.entity';
+import { CountryResultDto } from './country.dto';
 
 export class RouteResultDto {
   @ApiProperty()
@@ -23,7 +24,7 @@ export class RouteResultDto {
   link: string;
 
   @ApiProperty()
-  country: Country;
+  country: CountryResultDto;
 
   @ApiProperty()
   province: string;

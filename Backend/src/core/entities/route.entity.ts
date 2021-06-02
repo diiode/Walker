@@ -28,7 +28,7 @@ export class Route extends BaseEntity {
   rating?: number;
   difficulty: number;
 
-  private constructor(route: CreateRouteProps) {
+  constructor(route: CreateRouteProps) {
     super();
     Object.assign(this, route);
     this.dateTimeCreated = new Date();

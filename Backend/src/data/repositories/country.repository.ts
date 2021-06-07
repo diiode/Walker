@@ -10,6 +10,9 @@ export class CountryRepo implements IRepo<string, Country> {
   constructor(
     @InjectRepository(CountrySchema) private repository: Repository<Country>,
   ) {}
+  delete(id: string) {
+    throw new Error('Method not implemented.');
+  }
   update(id: string, entity: Country) {
     throw new Error('Method not implemented.');
   }

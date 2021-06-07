@@ -4,4 +4,5 @@ export interface IRepo<Type, BaseEntity> {
   getById(id: Type): Promise<BaseEntity>;
   add(entity: BaseEntity);
   update(id: Type, entity: Partial<BaseEntity>);
+  delete(id: Type);
 }

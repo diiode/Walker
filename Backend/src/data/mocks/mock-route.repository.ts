@@ -25,4 +25,11 @@ export class MockRouteRepo implements IRepo<number, Route> {
     const index = this.routeStore.findIndex((r) => r.id == id);
     this.routeStore[index] = entity;
   }
+
+  delete(id: number) {
+    const index = this.routeStore.findIndex((r) => r.id == id);
+    if (index > -1) {
+      this.routeStore.splice(index, 1);
+    }
+  }
 }

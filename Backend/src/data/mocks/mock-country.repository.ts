@@ -18,4 +18,7 @@ export class MockCountryRepo implements IRepo<string, Country> {
   async getAll(): Promise<Country[]> {
     return countries;
   }
+  delete(id: string) {
+    throw new Error('Method not implemented.');
+  }
 }

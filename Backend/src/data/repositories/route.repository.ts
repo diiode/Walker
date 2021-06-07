@@ -29,4 +29,8 @@ export class RouteRepo implements IRepo<number, Route> {
   update(id: number, entity: Partial<Route>) {
     return this.repository.update(id, entity);
   }
+
+  delete(id: number) {
+    return this.repository.delete(id);
+  }
 }

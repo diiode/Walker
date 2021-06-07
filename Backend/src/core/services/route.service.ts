@@ -43,6 +43,10 @@ export class RouteService {
     return this.routeRepository.getById(id);
   }
 
+  delete(id: number) {
+    return this.routeRepository.delete(id);
+  }
+
   async update(id: number, updatedRoute: Partial<Route>) {
     const route = await this.routeRepository.getById(id);
     if (route == null) {

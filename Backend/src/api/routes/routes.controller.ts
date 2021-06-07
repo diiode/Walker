@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import {
   ApiCreatedResponse,
   ApiNotFoundResponse,
@@ -61,6 +69,13 @@ export class RoutesController {
     @Body() updateRouteDto: UpdateRouteDto,
   ) {
     await this.routeService.update(id, { ...updateRouteDto });
+  }
+
+  @Delete(':id')
+  @ApiOkResponse()
+  @ApiNotFoundResponse()
+  async delete(@Param('id') id: number) {
+    await this.routeService.delete(id);
   }
 
   @Post(':id/plan')

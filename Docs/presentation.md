@@ -105,12 +105,37 @@ Why not build and app to register those trips and rate them.
 
 - Nice to use
 - Familiar with **Angular**
-- More flexible than **Angular** and less verbose than **net core**
+- More flexible than **Angular** and less verbose than **dotnet core**
 - => Good solution for **micro**services
 
 ---
 
 # Final
 
-- Try it out, link: _<add link>_
+- Try it out, link: https://github.com/diiode/Walker
 - Can this framework be used within the organization?
+
+---
+
+# Notes
+
+- Seperating TypeORM from Entities by using Schemas looks like the perfect way to DDD, but your models end up as anemic models. You can't add functions to it.
+- Injecting Typescript interfaces via DI doesn't work the same way as in dotnet core. It's not as clean but it's possible:
+
+In a module:
+
+```
+providers: [{
+  provide: 'ICountryRepo',
+  useClass: CountryRepo,
+}]
+```
+
+In the provider itself:
+
+```
+constructor(
+  @Inject('ICountryRepo')
+  private countryRepository: IRepo<string, Country>,
+) {}
+```

@@ -3,13 +3,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Route } from 'src/core/entities/route.entity';
 import { IRepo } from 'src/core/interfaces/irepository.interface';
 import { Repository } from 'typeorm';
-import { RouteSchema } from '../entity-schemas/route.schema';
 
 @Injectable()
 export class RouteRepo implements IRepo<number, Route> {
-  constructor(
-    @InjectRepository(RouteSchema) private repository: Repository<Route>,
-  ) {}
+  constructor(@InjectRepository(Route) private repository: Repository<Route>) {}
 
   getAll(): Promise<Route[]> {
     return this.repository.find({ relations: ['country'] });

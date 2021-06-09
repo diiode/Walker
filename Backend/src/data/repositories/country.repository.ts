@@ -3,12 +3,11 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Country } from 'src/core/entities/country.entity';
 import { IRepo } from 'src/core/interfaces/irepository.interface';
 import { Repository } from 'typeorm';
-import { CountrySchema } from '../entity-schemas/country.schema';
 
 @Injectable()
 export class CountryRepo implements IRepo<string, Country> {
   constructor(
-    @InjectRepository(CountrySchema) private repository: Repository<Country>,
+    @InjectRepository(Country) private repository: Repository<Country>,
   ) {}
   delete(id: string) {
     throw new Error('Method not implemented.');

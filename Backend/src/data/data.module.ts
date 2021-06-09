@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CountrySchema } from './entity-schemas/country.schema';
-import { RouteSchema } from './entity-schemas/route.schema';
+import { Country } from 'src/core/entities/country.entity';
+import { Route } from 'src/core/entities/route.entity';
 import { MockCountryRepo } from './mocks/mock-country.repository';
 import { CountryRepo } from './repositories/country.repository';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([CountrySchema, RouteSchema])],
+  imports: [TypeOrmModule.forFeature([Country, Route])],
   providers: [MockCountryRepo, CountryRepo],
   exports: [MockCountryRepo, CountryRepo],
 })

@@ -7,9 +7,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CountrySchema } from 'src/data/entity-schemas/country.schema';
 import { RouteSchema } from 'src/data/entity-schemas/route.schema';
 import { RouteRepo } from 'src/data/repositories/route.repository';
+import { Route } from './entities/route.entity';
+import { Country } from './entities/country.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([CountrySchema, RouteSchema])],
+  imports: [TypeOrmModule.forFeature([Country, Route])],
   providers: [
     // {
     //   provide: 'ICountryRepo',

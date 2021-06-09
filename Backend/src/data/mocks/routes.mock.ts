@@ -1,4 +1,5 @@
-import { Route, RouteStatus } from 'src/core/entities/route.entity';
+import { Route } from 'src/core/entities/route.entity';
+import { RouteStatus } from 'src/core/entities/route-status.enum';
 import { countries } from './countries.mock';
 
 const route = Route.create({

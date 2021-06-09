@@ -1,5 +1,5 @@
-import { Country } from 'src/core/entities/country.entity';
-import { Route, RouteStatus } from 'src/core/entities/route.entity';
+import { Route } from 'src/core/entities/route.entity';
+import { RouteStatus } from 'src/core/entities/route-status.enum';
 import { EntitySchema } from 'typeorm';
 
 export const RouteSchema = new EntitySchema<Route>({

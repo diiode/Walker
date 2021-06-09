@@ -1,7 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Country } from 'src/core/entities/country.entity';
 import { Gpx } from 'src/core/entities/gpx.entity';
-import { RouteStatus } from 'src/core/entities/route.entity';
+import { RouteStatus } from 'src/core/entities/route-status.enum';
 import { CountryResultDto } from './country.dto';
 
 export class RouteResultDto {

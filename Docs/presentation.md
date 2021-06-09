@@ -11,26 +11,6 @@ class:
 
 ---
 
-# To Do
-
-_Hide_
-
-- [ ] Finish backend
-  - _See backend To Do_
-- [ ] Create Demo
-- [ ] Investigate OpenAPI generated SPA app
-
----
-
-# Plan
-
-_Hide_
-
-1. Intro and explain what nestjs is and can do
-2. Demo
-
----
-
 # Contents
 
 1.  Intro
@@ -48,9 +28,9 @@ _Hide_
 
 # Intro
 
-- **Node.js**
+- **Node.js** framework
   - **Express** or **Fastify**
-- **Typescript**
+- Language: **Typescript**
 - The architecture is heavily inspired by **Angular**.
 
 ---
@@ -58,8 +38,9 @@ _Hide_
 # Features
 
 - Controllers
-- Providers _(ie services)_
+- Providers _(ie Services)_
 - MVC _(eg Handlebars template)_
+- Database _(SQLite)_
 - ORM _(by TypeORM)_
 - Modules
 - Middleware
@@ -75,7 +56,7 @@ _Hide_
 Other interesting features of Nest.js. These will not be shown during this demo.
 
 - Security
-  - Oauth, ...
+  - OAuth, ...
 - Microservices
 - Queues and Task scheduling (cron)
 - Websockets
@@ -108,20 +89,28 @@ nest g crud todo
 
 # Walker
 
-Like everything during the lockdown, I started to walk more and plan a lot of trips.
+Like everyone during the lockdown, I started to walk more and plan a lot of trips.
 
-Why not build and app to plan those trips and register and rate them.
+Why not build and app to register those trips and rate them.
 
 ---
 
 # Demo 2: Walker App
 
+![bg right](silly-walks.png)
+
 ---
 
-# Demo 2: Walker App - Guide
+# Personal Findings
 
-_Hide_
+- Nice to use
+- Familiar with **Angular**
+- More flexible than **Angular** and less verbose than **net core**
+- => Good solution for **micro**services
 
-1. Show entities
-2. Start app and explain swagger integration
-3.
+---
+
+# Final
+
+- Try it out, link: _<add link>_
+- Can this framework be used within the organization?

@@ -58,7 +58,7 @@ export class RouteService {
   }
 
   async plan(id: number, plannedDate: Date) {
-    const route = await this.routeRepository.getById(id);
+    const route: Route = await this.routeRepository.getById(id);
     if (route == null) {
       throw new Error('Route not found');
     }

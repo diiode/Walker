@@ -39,7 +39,7 @@ export class Route extends BaseEntity {
     return new Route(route);
   }
 
-  plan(plannedDate: Date) {
+  public plan(plannedDate: Date) {
     if (this.status == RouteStatus.Planned) {
       console.log('Route already planned');
     } else if (this.status == RouteStatus.Added) {
@@ -50,7 +50,7 @@ export class Route extends BaseEntity {
     }
   }
 
-  complete(rating: number) {
+  public complete(rating: number) {
     if (this.status != RouteStatus.Planned) {
       throw new Error(`Can't complete a route that's not planned.`);
     }

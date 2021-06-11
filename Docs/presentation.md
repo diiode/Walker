@@ -82,8 +82,12 @@ nest new todo-project
 Generate a CRUD endpoint with Entities DTOs, Controller, Module and Service:
 
 ```
-nest g crud todo
+nest g res todo
 ```
+
+---
+
+# Demo 1: Setup & Generate a Project
 
 ---
 
@@ -110,13 +114,6 @@ Why not build and app to register those trips and rate them.
 
 ---
 
-# Final
-
-- Try it out, link: https://github.com/diiode/Walker
-- Can this framework be used within the organization?
-
----
-
 # Notes
 
 - Seperating TypeORM from Entities by using Schemas looks like the perfect way to DDD, but your models end up as anemic models. You can't add functions to it.
@@ -139,3 +136,12 @@ constructor(
   private countryRepository: IRepo<string, Country>,
 ) {}
 ```
+
+---
+
+# Final
+
+- Try it out, link: https://github.com/diiode/Walker
+- Can this framework be used within the organization?
+
+---

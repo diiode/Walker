@@ -20,7 +20,7 @@ Register your walking routes during lockdown.
 ## Structure
 
 - Root
-  - Backend **-> contains the application**
+  - Backend **-> Contains the application**
   - Docs **-> Documentation and slides**
 
 ## How To
